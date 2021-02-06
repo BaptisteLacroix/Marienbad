@@ -1,7 +1,7 @@
 # pip install art==4.8
 
 from random import randint
-from art import *
+from art import tprint
 from colorama import Fore, Style
 
 
@@ -40,7 +40,8 @@ def joueur_vs_joueur():
         # -> verifie
         while not jeu.verifie(t, n):  # on verifie si possible
             print(
-                "Attention Vous devez mettre un numéro compris entre 1 et 6 en fonction du tas choisis ne dépassez pas !\n")
+                "Attention Vous devez mettre un numéro compris entre 1 et 6 en fonction du tas choisis ne dépassez "
+                "pas !\n")
             print(jeu)
             t, n = Error()
         # -> enlever
@@ -72,8 +73,8 @@ def joueur_vs_ordi_idiot():
             t, n = Error()
             # -> verifie
             while not jeu.verifie(t, n):  # on verifie si possible
-                print(
-                    "Attention Vous devez mettre un numéro compris entre 1 et 6 en fonction du tas choisis ne dépassez pas !\n")
+                print("Attention Vous devez mettre un numéro compris entre 1 et 6 en fonction du tas choisis ne "
+                      "dépassez pas !\n")
                 print(jeu)
                 t, n = Error()
             # -> enlever
@@ -110,7 +111,8 @@ def Error():
         try:
             # -> saisie du n
             n = int(input(
-                "Donnez le numéro du nombre d'allumettes que vous voulez enlever dans ce tas : "))  # demande le nbr d'allumettes a enlever
+                "Donnez le numéro du nombre d'allumettes que vous voulez enlever dans ce tas : "))  # demande le nbr
+            # d'allumettes a enlever
             break
         except ValueError:
             print("Oups ! ce n'est pas un chiffre valide. Essais encore...")
@@ -139,9 +141,9 @@ class Marienband:
         :return: l’état du jeu en cours (tas, allumettes, prochain joueur)
         """
         joueur_actuel, prochain_joueur = self.ordre_joueurs()
-        return "\n" + Fore.MAGENTA + joueur_actuel + Style.RESET_ALL + " joue\nTas : " + str(
-            self.tas) + "\nAllumettes : " + str(
-            self.allumettes) + "\nProchain joueur : " + Fore.MAGENTA + prochain_joueur + Style.RESET_ALL
+        return "\n" + Fore.MAGENTA + joueur_actuel + Style.RESET_ALL + " joue\nTas :        " + str(
+            self.tas) + "\nAllumettes : " + str(self.allumettes)
+        # + "\nProchain joueur : " + Fore.MAGENTA + prochain_joueur + Style.RESET_ALL
 
     def ordre_joueurs(self):
         """
@@ -165,9 +167,8 @@ class Marienband:
             print("Attention Vous devez mettre un numéro compris entre 1 et 6 pour le tas\n")
             return False
         else:
-            if 0 < n <= 6 and 0 < n <= self.allumettes[
-                t - 1]:  # Si le nombre n d'allumettes est compris entre 0 et 6 et que n se situes bien dans le tas t
-                # alors
+            if 0 < n <= 6 and 0 < n <= self.allumettes[t - 1]:
+                # Si le nombre n d'allumettes est compris entre 0 et 6 et que n se situes bien dans le tas t alors
                 return True  # Renvoie Vrai
             return False
 
@@ -199,7 +200,7 @@ def main():
     """
     while True:
         try:
-            reponse = int(input("Taper : \n 1 Joueur vs Joueur \n 2 Joueur vs ia (IA joue au hasard) \n 3 Quitter :"))
+            reponse = int(input("Taper : \n 1 Joueur vs Joueur \n 2 Joueur vs ia (IA joue au hasard) \n 3 Quitter : "))
             break
         except ValueError:  # Alerte
             print("Erreur veuillez réessayer")
