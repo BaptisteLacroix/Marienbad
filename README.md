@@ -1,4 +1,4 @@
-# Marienband
+# Marienbad
 ## Rules
 
 Let us first recall the rule of the **game of Marienbad**:
